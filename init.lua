@@ -193,7 +193,12 @@ require('lualine').setup {
         icons_enabled = true,
         theme = colorsheme ,
         component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''}}
+        section_separators = { left = '', right = ''},
+      },
+      sections = {
+          lualine_z = {'location',{'datetime',style="%T - %D"}}
+    }
+
 }
 
 require("vim_options")

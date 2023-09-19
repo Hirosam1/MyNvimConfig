@@ -41,4 +41,4 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 --Color the 80th column to recommended text warap
-vim.o.colorcolumn="80"
+vim.o.colorcolumn="120"
