@@ -196,7 +196,7 @@ require('lualine').setup {
         section_separators = { left = '', right = ''},
       },
       sections = {
-          lualine_z = {'location',{'datetime',style="%T - %D"}}
+          lualine_z = {'location',{'datetime',style=" %H:%M %d/%m"}}
     }
 
 }
