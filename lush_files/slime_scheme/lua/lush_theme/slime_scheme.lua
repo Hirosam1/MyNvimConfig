@@ -44,14 +44,14 @@
 
 local lush = require('lush')
 local hsl = lush.hsl
-local main_magenta = hsl(345,80,45)
+local main_magenta = hsl(330,75,45)
 local main_dark_magenta = hsl(294,100,4)
 local main_purple = hsl(276,100,44)
 local main_green = hsl(137,85,40)
 local main_cyan = hsl(185,80,48)
 local main_orange = hsl(25,83,51)
 local main_yellow = hsl(59,70,60)
-local main_red = hsl(5,65,40)
+local main_red = hsl(5,70,40)
 local main_pink = hsl(300,48,70)
 local main_blue = hsl(230,70,50)
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
@@ -71,6 +71,7 @@ local theme = lush(function(injected_functions)
 	--
 	-- See :h highlight-groups
 	--
+	--Ins
 	ColorColumn    {bg=main_dark_magenta.li(10).de(40) }, -- Columns set with 'colorcolumn'
 	Conceal        {fg=main_dark_magenta.li(30).de(60) }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
 	Cursor         {fg=main_dark_magenta, bg=main_magenta }, -- Character under the cursor
@@ -89,8 +90,8 @@ local theme = lush(function(injected_functions)
 	-- TermCursorNC   { }, -- Cursor in an unfocused terminal
 	ErrorMsg       {fg=main_red.li(20).de(20), bg=main_dark_magenta.ro(50).li(10).sa(20)}, -- Error messages on the command line
 	-- VertSplit      { }, -- Column separating vertically split windows
-	-- Folded         { }, -- Line used for closed folds
-	-- FoldColumn     { }, -- 'foldcolumn'
+	   Folded         {fg=main_cyan.de(50).da(95), bg=main_purple.da(20).sa(10) }, -- Line used for closed folds
+	   FoldColumn     {fg=main_cyan.de(50).da(95), bg=main_purple.da(20).sa(10) }, -- 'foldcolumn'
 	SignColumn     {fg=hsl(0,0,100), bg=main_dark_magenta }, -- Column where |signs| are displayed
 	-- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 	Substitute     {fg=main_dark_magenta, bg=main_magenta }, -- |:substitute| replacement text highlighting
@@ -98,7 +99,7 @@ local theme = lush(function(injected_functions)
 	LineNrAbove    {fg=main_magenta.li(5).de(10).ro(15) }, -- Line number for when the 'relativenumber' option is set, above the cursor line
 	LineNrBelow    {LineNrAbove }, -- Line number for when the 'relativenumber' option is set, below the cursor line
 	CursorLineNr   {fg=main_magenta.li(20).de(20) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-	-- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
+	CursorLineFold {fg=main_cyan.de(50).da(85), bg=main_purple.li(10).sa(10)}, -- Like FoldColumn when 'cursorline' is set for the cursor line
 	-- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
 	-- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 	-- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")

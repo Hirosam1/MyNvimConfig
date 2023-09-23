@@ -73,7 +73,7 @@ if not vim.loop.fs_stat(lazypath) then
     {
       -- Shows funtion signature
       "ray-x/lsp_signature.nvim",
-      event = "VeryLazy",
+      -- event = "VeryLazy",
       opts = {},
       config = function(_, opts) require'lsp_signature'.setup(opts) end
     },
