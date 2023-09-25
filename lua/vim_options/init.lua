@@ -42,3 +42,8 @@ vim.o.termguicolors = true
 
 --Color the 80th column to recommended text warap
 vim.o.colorcolumn="120"
+vim.o.foldmethod="manual"
+
+-- Set basic neovim spelling
+vim.wo.spell = true
+vim.o.spelllang="en"
