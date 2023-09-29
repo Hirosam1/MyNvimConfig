@@ -168,7 +168,7 @@ local theme = lush(function(injected_functions)
 	Identifier     {Normal }, -- (*) Any variable name
 	Function       {fg=main_blue.de(30).da(10) }, --   Function name (also: methods for classes)
 
-	Statement      {fg=main_purple.de(30).li(40).ro(-20) }, -- (*) Any statement
+	Statement      {fg=main_purple.de(30).li(50).ro(-20) }, -- (*) Any statement
 	Conditional    {Statement }, --   if, then, else, endif, switch, etc.
 	Repeat         {Statement }, --   for, do, while, etc.
 	Label          {Statement }, --   case, default, etc.
@@ -182,7 +182,7 @@ local theme = lush(function(injected_functions)
 	Macro          {PreProc }, --   Same as Define
 	PreCondit      {PreProc }, --   Preprocessor #if, #else, #endif, etc.
 
-	Type           {fg=main_purple.de(30).li(50)}, -- (*) int, long, char, etc.
+	Type           {fg=main_purple.sa(20).da(8)}, -- (*) int, long, char, etc.
 	StorageClass   {Type }, --   static, register, volatile, etc.
 	Structure      {fg=main_purple}, --   struct, union, enum, etc.
 	Typedef        {Statement}, --   A typedef
