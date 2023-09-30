@@ -137,10 +137,11 @@ WildMenu = {fg = "#120014", bg = "#8700E0"},
 ["@parameter"] = {fg = "#AD2B1F"},
 ["@property"] = {fg = "#CD37B4"},
 ["@lsp.type.property"] = {link = "@property"},
-["@text.literal"] = {fg = "#1A893A"},
+["@text.literal"] = {fg = "#1D863B"},
 ["@text.reference"] = {fg = "#CD37B4"},
 ["@text.underline"] = {undercurl = true},
-["@variable.builtin"] = {fg = "#18CCDC"},
+["@variable.builtin"] = {fg = "#10CB93"},
+["@lsp.typemod.variable.defaultLibrary"] = {link = "@variable.builtin"},
 ["@lsp.type.variable"] = {link = "@variable"},
 -- PATCH_CLOSE
 }

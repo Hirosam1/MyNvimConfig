@@ -257,7 +257,7 @@ local theme = lush(function(injected_functions)
 	--
 	-- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-	sym"@text.literal"      {fg=main_green.de(20).da(20) }, -- Comment
+	sym"@text.literal"      {fg=main_green.de(25).da(20) }, -- Comment
 	sym"@text.reference"    {fg=main_magenta.li(10).de(20).ro(-20) }, -- Identifier
 	sym"@text.title"        {Title }, -- Title
 	sym"@text.uri"          {Underlined }, -- Underlined
@@ -294,7 +294,7 @@ local theme = lush(function(injected_functions)
 	sym"@keyword"           {Statement }, -- Keyword
 	sym"@exception"         {Statement }, -- Exception
 	sym"@variable"          {Identifier }, -- Identifier
-	sym"@variable.builtin"  {fg=main_cyan}, -- Stuff like this/self
+	sym"@variable.builtin"  {fg=main_green.ro(25).li(5)}, -- Stuff like this/self
 	sym"@type"              {Type }, -- Type
 	sym"@type.definition"   {Typedef }, -- Typedef
 	sym"@storageclass"      {StorageClass }, -- StorageClass
@@ -309,6 +309,7 @@ local theme = lush(function(injected_functions)
 	sym"@lsp.type.property" {sym"@property"},
 	sym"@lsp.type.variable" {sym"@variable"},
 	sym"@lsp.type.mehod"    {sym"@method" },
+	sym"@lsp.typemod.variable.defaultLibrary" {sym"@variable.builtin"},
 	-- Plugins stuff
 	TelescopeSelection      {bg=main_magenta,fg=main_dark_magenta},
     }
