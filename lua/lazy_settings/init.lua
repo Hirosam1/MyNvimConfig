@@ -111,7 +111,7 @@ if not vim.loop.fs_stat(lazypath) then
     -- LUsh and shipwright for crating my themes
     'rktjmp/lush.nvim',
     'rktjmp/shipwright.nvim',
-
+    'vimwiki/vimwiki',
     {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -131,6 +131,10 @@ if not vim.loop.fs_stat(lazypath) then
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+  --Make background transparent
+  "xiyaowong/transparent.nvim",
+  --Color picker
+  "max397574/colortils.nvim",
 
   -- Fuzzy Finder (files, lsp, etc)
   {

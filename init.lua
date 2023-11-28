@@ -6,6 +6,8 @@ vim.g.maplocalleader = ' '
 
 --Sttings and plugin definition for Lazy package manager.
 require("lazy_settings")
+--Set up colortils
+require("colortils").setup()
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -160,6 +162,9 @@ local servers = {
       plugins = {
         pycodestyle = {
           enabled = false
+        },
+        jedi = {
+          environment="/usr/bin/python3"
         }
       }
     }
