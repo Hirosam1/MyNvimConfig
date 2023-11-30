@@ -33,6 +33,8 @@ require("vim_options")
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+--- Remove the f1 mapping to vim docs, because I keep pressing it accidentally.
+vim.keymap.set({ 'n', 'v' }, '<F1>', '<Nop>', {silent = true})
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
