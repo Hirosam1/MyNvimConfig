@@ -47,3 +47,6 @@ vim.o.foldmethod="manual"
 -- Set basic neovim spelling
 vim.wo.spell = true
 vim.o.spelllang="en"
+
+-- Disable swap files.
+vim.opt.swapfile = false
