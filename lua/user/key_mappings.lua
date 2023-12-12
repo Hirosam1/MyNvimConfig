@@ -6,11 +6,11 @@ vim.keymap.set({ 'n', 'v' }, '<F1>', '<Nop>', {silent = true})
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 --Maps a shortcut for moving between windows
-vim.keymap.set('n', '<C-h>', '<C-w>h',{noremap = true, silent = true})
-vim.keymap.set('n', '<C-j>', '<C-w>j',{noremap = true, silent = true})
-vim.keymap.set('n', '<C-k>', '<C-w>k',{noremap = true, silent = true})
-vim.keymap.set('n', '<C-l>', '<C-w>l',{noremap = true, silent = true})
-vim.keymap.set('n', '<C-x>', '<C-w>x',{noremap = true, silent = true})
+vim.keymap.set('n', '<C-h>', '<C-w>h',{silent = true})
+vim.keymap.set('n', '<C-j>', '<C-w>j',{silent = true})
+vim.keymap.set('n', '<C-k>', '<C-w>k',{silent = true})
+vim.keymap.set('n', '<C-l>', '<C-w>l',{silent = true})
+vim.keymap.set('n', '<C-x>', '<C-w>x',{silent = true})
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
@@ -37,6 +37,7 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -67,7 +68,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  nmap('<C-p>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -83,3 +84,4 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+return on_attach

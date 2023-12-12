@@ -61,6 +61,8 @@ require("user.treesitter_settings")
 
 require("user.key_mappings")
 
+local on_attach = require("user.key_mappings")
+
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
