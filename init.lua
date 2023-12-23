@@ -61,6 +61,8 @@ require("user.treesitter_settings")
 
 require("user.key_mappings")
 
+-- [[ Configure LSP ]]
+--  This function gets run when an LSP connects to a particular buffer.
 local on_attach = require("user.key_mappings")
 
 -- Enable the following language servers

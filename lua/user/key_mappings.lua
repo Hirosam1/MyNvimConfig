@@ -11,7 +11,18 @@ vim.keymap.set('n', '<C-j>', '<C-w>j',{silent = true})
 vim.keymap.set('n', '<C-k>', '<C-w>k',{silent = true})
 vim.keymap.set('n', '<C-l>', '<C-w>l',{silent = true})
 vim.keymap.set('n', '<C-x>', '<C-w>x',{silent = true})
-
+--Create a command for changing the colorcolumn propriety
+local colorcolumn_states = {'120','80'}
+local current_state = 1
+local colorcolumn_switch_fn = function()
+    local l = #colorcolumn_states
+    current_state = current_state + 1
+    if(current_state > l) then
+    	current_state = 1
+    end
+    vim.cmd.echo(string.format("'colorcolumn = %d'", current_state))
+end
+vim.api.nvim_create_user_command("ColorColumnSwitch", colorcolumn_switch_fn, {})
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
