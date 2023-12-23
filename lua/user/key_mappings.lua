@@ -20,7 +20,8 @@ local colorcolumn_switch_fn = function()
     if(current_state > l) then
     	current_state = 1
     end
-    vim.cmd.echo(string.format("'colorcolumn = %d'", current_state))
+    vim.cmd.echo(string.format("'colorcolumn = %d'", colorcolumn_states[current_state]))
+    vim.o.colorcolumn = colorcolumn_states[current_state]
 end
 vim.api.nvim_create_user_command("ColorColumnSwitch", colorcolumn_switch_fn, {})
 -- See `:help telescope.builtin`
