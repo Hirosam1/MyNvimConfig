@@ -14,7 +14,7 @@ vim.keymap.set('n', '<C-x>', '<C-w>x',{silent = true})
 --Create a command for changing the colorcolumn propriety
 local colorcolumn_states = {'120','80'}
 local current_state = 1
-local colorcolumn_switch_fn = function()
+local colorcolumn_switch_fn = function(opts)
     local l = #colorcolumn_states
     current_state = current_state + 1
     if(current_state > l) then
