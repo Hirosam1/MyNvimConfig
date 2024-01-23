@@ -50,3 +50,9 @@ vim.o.spelllang="en"
 
 -- Disable swap files.
 vim.opt.swapfile = false
+
+--Set listing characters
+vim.opt.listchars= {
+    eol = "$",
+    tab = "\\t"
+ }
