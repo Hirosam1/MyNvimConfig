@@ -59,9 +59,6 @@ pcall(require('telescope').load_extension, 'fzf')
 --Configure treesitter
 require("user.treesitter_settings")
 
-require("user.key_mappings")
-
--- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = require("user.key_mappings")
 
