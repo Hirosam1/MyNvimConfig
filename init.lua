@@ -29,17 +29,6 @@ require('lualine').setup {
 
 require("user.vim_options")
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
-
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -59,9 +48,10 @@ pcall(require('telescope').load_extension, 'fzf')
 --Configure treesitter
 require("user.treesitter_settings")
 
---  This function gets run when an LSP connects to a particular buffer.
-local on_attach = require("user.key_mappings")
+local on_attach = require("user.vim_commands")
 
+-- [[ Configure LSP ]]
+--  This function gets run when an LSP connects to a particular buffer.
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 --
@@ -77,10 +67,10 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  pylsp={
   -- Removes pycodestyle from pylsp config.
   -- Avoids polluting the screen with warning
   -- on a pre-existing project.
-  pylsp={
     autostart = true,
     pylsp = {
       plugins = {
@@ -109,7 +99,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
+local mason_lspconfig = require('mason-lspconfig')
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
@@ -128,8 +118,8 @@ mason_lspconfig.setup_handlers {
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
-local cmp = require 'cmp'
-local luasnip = require 'luasnip'
+local cmp = require('cmp')
+local luasnip = require('luasnip')
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
