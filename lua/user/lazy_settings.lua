@@ -49,7 +49,7 @@ if not vim.loop.fs_stat(lazypath) then
       'hrsh7th/nvim-cmp',
       dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
-        'L3MON4D3/LuaSnip',
+        -- 'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
 
         -- Adds LSP completion capabilities
@@ -117,14 +117,18 @@ if not vim.loop.fs_stat(lazypath) then
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
     -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
+    -- 
     opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
+      indent ={
+	char = '┊',
+      },
+      scope = {
+	show_start=false
+      },
     },
   },
-
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
   --Make background transparent
