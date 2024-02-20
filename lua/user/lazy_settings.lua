@@ -49,7 +49,7 @@ if not vim.loop.fs_stat(lazypath) then
       'hrsh7th/nvim-cmp',
       dependencies = {
         -- Snippet Engine & its associated nvim-cmp source
-        -- 'L3MON4D3/LuaSnip',
+        'L3MON4D3/LuaSnip',
         'saadparwaiz1/cmp_luasnip',
 
         -- Adds LSP completion capabilities
@@ -125,7 +125,8 @@ if not vim.loop.fs_stat(lazypath) then
 	char = '┊',
       },
       scope = {
-	show_start=false
+	show_start = false,
+	char = '║'
       },
     },
   },

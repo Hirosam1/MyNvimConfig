@@ -310,8 +310,12 @@ local theme = lush(function(injected_functions)
 	sym"@lsp.type.variable" {sym"@variable"},
 	sym"@lsp.type.mehod"    {sym"@method" },
 	sym"@lsp.typemod.variable.defaultLibrary" {sym"@variable.builtin"},
+	-- Vimwiki stuff
+	VimwikiBold             {fg=main_magenta.ro(25).da(15)},
 	-- Plugins stuff
 	TelescopeSelection      {bg=main_magenta,fg=main_dark_magenta},
+	-- Ident-blankline (ibl) stuff
+	IblScope                {fg=main_cyan.ro(-30).de(60).da(10)}
     }
 end)
 
