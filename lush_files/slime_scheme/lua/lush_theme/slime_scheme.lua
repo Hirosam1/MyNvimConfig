@@ -44,14 +44,14 @@
 
 local lush = require('lush')
 local hsl = lush.hsl
-local main_magenta = hsl(330,75,45)
-local main_dark_magenta = hsl(294,100,4)
+local main_magenta = hsl(325,75,45)
+local main_dark_magenta = hsl(294,100,8)
 local main_purple = hsl(276,100,44)
 local main_green = hsl(137,85,40)
 local main_cyan = hsl(185,80,48)
-local main_orange = hsl(25,83,51)
-local main_yellow = hsl(59,70,60)
-local main_red = hsl(5,70,40)
+local main_orange = hsl(20,75,55)
+local main_yellow = hsl(60,70,60)
+local main_red = hsl(0,60,50)
 local main_pink = hsl(300,48,70)
 local main_blue = hsl(230,70,50)
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
@@ -89,16 +89,16 @@ local theme = lush(function(injected_functions)
 	-- TermCursor     { }, -- Cursor in a focused terminal
 	-- TermCursorNC   { }, -- Cursor in an unfocused terminal
 	ErrorMsg       {fg=main_red.li(20).de(20), bg=main_dark_magenta.ro(50).li(10).sa(20)}, -- Error messages on the command line
-	-- VertSplit      { }, -- Column separating vertically split windows
+	VertSplit      {fg=main_magenta }, -- Column separating vertically split windows
 	   Folded         {fg=main_cyan.de(50).da(95), bg=main_purple.da(20).sa(10) }, -- Line used for closed folds
 	   FoldColumn     {fg=main_cyan.de(50).da(95), bg=main_purple.da(20).sa(10) }, -- 'foldcolumn'
 	SignColumn     {fg=hsl(0,0,100), bg=main_dark_magenta }, -- Column where |signs| are displayed
 	-- IncSearch      { }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 	Substitute     {fg=main_dark_magenta, bg=main_magenta }, -- |:substitute| replacement text highlighting
-	LineNr         {fg=main_magenta.li(40).de(20).ro(15) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-	LineNrAbove    {fg=main_magenta.li(5).de(10).ro(15) }, -- Line number for when the 'relativenumber' option is set, above the cursor line
+	LineNr         {fg=main_orange}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+	LineNrAbove    {fg=main_red.sa(-20) }, -- Line number for when the 'relativenumber' option is set, above the cursor line
 	LineNrBelow    {LineNrAbove }, -- Line number for when the 'relativenumber' option is set, below the cursor line
-	CursorLineNr   {fg=main_magenta.li(20).de(20) }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+	CursorLineNr   {LineNr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 	CursorLineFold {fg=main_cyan.de(50).da(85), bg=main_purple.li(10).sa(10)}, -- Like FoldColumn when 'cursorline' is set for the cursor line
 	-- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
 	-- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -106,7 +106,7 @@ local theme = lush(function(injected_functions)
 	-- MsgArea        { }, -- Area for messages and cmdline
 	-- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
 	-- MoreMsg        { }, -- |more-prompt|
-	NonText        {fg=main_dark_magenta.li(15).de(10) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+	NonText        {fg=main_blue.de(10).li(20) }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 	Normal         {fg=main_magenta,bg=main_dark_magenta}, -- Normal text
 	-- NormalFloat    { }, -- Normal text in floating windows.
 	-- FloatBorder    { }, -- Border of floating windows.
@@ -134,7 +134,7 @@ local theme = lush(function(injected_functions)
 	-- TabLineFill    { }, -- Tab pages line, where there are no labels
 	-- TabLineSel     { }, -- Tab pages line, active tab page label
 	Title          {fg=main_purple.li(40) }, -- Titles for output from ":set all", ":autocmd" etc.
-	Visual         {fg=main_dark_magenta, bg=main_magenta.da(10).sa(10) }, -- Visual mode selection
+	    Visual         {fg=main_dark_magenta.sa(10), bg=main_purple.da(5).sa(10) }, -- Visual mode selection
 	-- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
 	WarningMsg     {fg=main_yellow }, -- Warning messages
 	Whitespace     {fg=main_dark_magenta.li(15).de(10) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -156,7 +156,7 @@ local theme = lush(function(injected_functions)
 	--
 	-- Uncomment and edit if you want more specific syntax highlighting.
 
-	Comment        {fg=main_dark_magenta.li(30).de(60).da(10) }, -- Any comment
+	Comment        {fg=main_dark_magenta.li(50).de(75).ro(40) }, -- Any comment
 
 	Constant       {fg=main_orange.de(10).da(20) }, -- (*) Any constant
 	String         {fg=main_pink }, --   A string constant: "this is a string"
@@ -166,9 +166,9 @@ local theme = lush(function(injected_functions)
 	Float          {Number }, --   A floating point constant: 2.3e10
 
 	Identifier     {Normal }, -- (*) Any variable name
-	Function       {fg=main_blue.de(30).da(10) }, --   Function name (also: methods for classes)
+	Function       {fg=main_blue.de(20).li(10) }, --   Function name (also: methods for classes)
 
-	Statement      {fg=main_purple.de(30).li(50).ro(-20) }, -- (*) Any statement
+	Statement      {fg=main_purple.de(20).li(30).ro(-70) }, -- (*) Any statement
 	Conditional    {Statement }, --   if, then, else, endif, switch, etc.
 	Repeat         {Statement }, --   for, do, while, etc.
 	Label          {Statement }, --   case, default, etc.
@@ -176,13 +176,13 @@ local theme = lush(function(injected_functions)
 	Keyword        {Statement }, --   any other keyword
 	Exception      {Statement }, --   try, catch, throw
 
-	PreProc        {fg=main_green.ro(10).da(20).de(50) }, -- (*) Generic Preprocessor
+	PreProc        {fg=main_green.ro(35).da(20).de(50) }, -- (*) Generic Preprocessor
 	Include        {PreProc }, --   Preprocessor #include
 	Define         {PreProc }, --   Preprocessor #define
 	Macro          {PreProc }, --   Same as Define
 	PreCondit      {PreProc }, --   Preprocessor #if, #else, #endif, etc.
 
-	Type           {fg=main_purple.sa(20).da(8)}, -- (*) int, long, char, etc.
+	Type           {fg=main_orange.li(20).de(10).ro(-20)}, -- (*) int, long, char, etc.
 	StorageClass   {Type }, --   static, register, volatile, etc.
 	Structure      {fg=main_purple}, --   struct, union, enum, etc.
 	Typedef        {Statement}, --   A typedef
@@ -197,7 +197,7 @@ local theme = lush(function(injected_functions)
 	Underlined     { gui = "underline", fg=main_pink}, -- Text that stands out, HTML links
 	-- Ignore         { }, -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
 	Error          {fg=main_dark_magenta, bg=main_red }, -- Any erroneous construct
-	Todo           {fg=main_magenta, bg=main_dark_magenta.li(15) }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+	Todo           {fg=main_cyan.da(25).sa(20) }, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
 	-- These groups are for the native LSP client and diagnostic system. Some
 	-- other LSP clients may use these groups, or use their own. Consult your
@@ -215,8 +215,8 @@ local theme = lush(function(injected_functions)
 	-- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
 	--
 	   DiagnosticError            {fg=main_red.li(10).sa(30) } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-	   DiagnosticWarn             {fg=main_orange } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-	   DiagnosticInfo             {fg=main_purple } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+	   DiagnosticWarn             {fg=main_yellow } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+	   DiagnosticInfo             {fg=main_purple.li(30).ro(-20).de(30)} , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 	   DiagnosticHint             {fg=main_pink } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 	   DiagnosticOk               {fg=main_green } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 	-- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
@@ -304,6 +304,7 @@ local theme = lush(function(injected_functions)
 	sym"@preproc"           {PreProc }, -- PreProc
 	sym"@debug"             {Debug }, -- Debug
 	sym"@tag"               {Tag }, -- Tag
+	sym"@string.documentation.python" {Comment },
 	-- LSP highlights
 	sym"@lsp.type.class"    {Structure},
 	sym"@lsp.type.property" {sym"@property"},
@@ -315,7 +316,8 @@ local theme = lush(function(injected_functions)
 	-- Plugins stuff
 	TelescopeSelection      {bg=main_magenta,fg=main_dark_magenta},
 	-- Ident-blankline (ibl) stuff
-	IblScope                {fg=main_cyan.ro(-30).de(60).da(10)}
+	IblIndent               {fg=main_dark_magenta.li(25).ro(25).de(25)},
+	IblScope                {fg=main_dark_magenta.li(35).ro(10).de(35)}
     }
 end)
 
