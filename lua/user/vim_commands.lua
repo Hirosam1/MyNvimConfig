@@ -1,6 +1,6 @@
--- [[ Highlight on yank ]]
+--k k[k[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+local higkhlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
@@ -24,7 +24,6 @@ vim.keymap.set('n', '<C-h>', '<C-w>h',{silent = true})
 vim.keymap.set('n', '<C-j>', '<C-w>j',{silent = true})
 vim.keymap.set('n', '<C-k>', '<C-w>k',{silent = true})
 vim.keymap.set('n', '<C-l>', '<C-w>l',{silent = true})
-vim.keymap.set('n', '<C-x>', '<C-w>x',{silent = true})
 
 --Create a command for changing the colorcolumn propriety
 local colorcolumn_states = {'120','80'}
@@ -41,7 +40,7 @@ end
 vim.api.nvim_create_user_command("ColorColumnSwitch", colorcolumn_switch_fn, {})
 
 --Remaos netrw call
-vim.keymap.set('n','<leader>pv',vim.cmd.Ex, {desc = 'Explore files'})
+vim.keymap.set('n','<leader>pv', require("nvim-tree.api").tree.toggle, {desc = 'Explore files'})
 
 -- Telescope configuration
 local function dropdown_blt_menu(blt_function)

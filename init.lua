@@ -4,6 +4,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+require("user.vim_options")
 --Sttings and plugin definition for Lazy package manager.
 require("user.lazy_settings")
 --Set up colortils
@@ -27,7 +28,6 @@ require('lualine').setup {
 
 }
 
-require("user.vim_options")
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`

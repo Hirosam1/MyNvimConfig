@@ -1,4 +1,6 @@
-
+-- Disavle netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 -- Sets how many space are in one paragrapth
 vim.o.shiftwidth=4
 -- Sets minimum amount of lines to keep above or below the line

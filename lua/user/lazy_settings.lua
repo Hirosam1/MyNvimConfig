@@ -26,6 +26,19 @@ if not vim.loop.fs_stat(lazypath) then
     'tpope/vim-fugitive',
     'tpope/vim-rhubarb',
 
+    -- Plugin for file explorer
+    {
+	"nvim-tree/nvim-tree.lua",
+	version = "*",
+	lazy=  false,
+	dependencies = {
+	    "nvim-tree/nvim-web-devicons",
+	},
+	config = function()
+	    require("nvim-tree").setup{}
+	end,
+    },
+
     -- Detect tabstop and shiftwidth automatically
     --'tpope/vim-sleuth',
 
