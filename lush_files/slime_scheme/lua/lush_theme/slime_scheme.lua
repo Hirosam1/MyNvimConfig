@@ -44,8 +44,8 @@
 
 local lush = require('lush')
 local hsl = lush.hsl
-local main_magenta = hsl(325,75,45)
-local main_dark_magenta = hsl(294,100,8)
+local main_magenta = hsl(325,80,45)
+local main_dark_magenta = hsl(294,70,3)
 local main_purple = hsl(276,100,44)
 local main_green = hsl(137,85,40)
 local main_cyan = hsl(185,80,48)
@@ -53,7 +53,7 @@ local main_orange = hsl(20,75,55)
 local main_yellow = hsl(60,70,60)
 local main_red = hsl(0,60,50)
 local main_pink = hsl(300,48,70)
-local main_blue = hsl(230,70,50)
+local main_blue = hsl(230,75,45)
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global

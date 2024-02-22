@@ -9,11 +9,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- Remove some keymappings
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
+vim.keymap.set({'n','v'}, '<C-S-j>', '<Nop>', {silent=true})
+vim.keymap.set({'n','v'}, '<C-S-k>', '<Nop>', {silent=true})
 --- Remove the f1 mapping to vim docs, because I keep pressing it accidentally.
 vim.keymap.set({ 'n', 'v' }, '<F1>', '<Nop>', {silent = true})
-
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
