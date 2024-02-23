@@ -52,7 +52,7 @@ local main_cyan = hsl(185,80,48)
 local main_orange = hsl(20,75,55)
 local main_yellow = hsl(60,70,60)
 local main_red = hsl(0,60,50)
-local main_pink = hsl(300,48,70)
+local main_pink = hsl(305,70,60)
 local main_blue = hsl(230,75,45)
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -75,7 +75,7 @@ local theme = lush(function(injected_functions)
 	ColorColumn    {bg=main_dark_magenta.li(10).de(40) }, -- Columns set with 'colorcolumn'
 	Conceal        {fg=main_dark_magenta.li(30).de(60) }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
 	Cursor         {fg=main_dark_magenta, bg=main_magenta }, -- Character under the cursor
-	CurSearch      {fg=main_dark_magenta, bg=main_purple }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+	CurSearch      {fg=main_dark_magenta, bg=main_pink }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
 	-- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
 	-- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
 	CursorColumn   {bg=main_dark_magenta.li(10).de(40) }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -159,16 +159,16 @@ local theme = lush(function(injected_functions)
 	Comment        {fg=main_dark_magenta.li(50).de(75).ro(40) }, -- Any comment
 
 	Constant       {fg=main_orange.de(10).da(20) }, -- (*) Any constant
-	String         {fg=main_pink }, --   A string constant: "this is a string"
+	String         {fg=main_pink.de(15).li(25) }, --   A string constant: "this is a string"
 	Character      {String }, --   A character constant: 'c', '\n'
 	Number         {fg=main_orange }, --   A number constant: 234, 0xff
-	Boolean        {fg=main_purple.li(30).ro(10) }, --   A boolean constant: TRUE, false
+	Boolean        {fg=main_purple.li(30).ro(15) }, --   A boolean constant: TRUE, false
 	Float          {Number }, --   A floating point constant: 2.3e10
 
 	Identifier     {Normal }, -- (*) Any variable name
-	Function       {fg=main_blue.de(20).li(10) }, --   Function name (also: methods for classes)
+	Function       {fg=main_blue.de(10).li(30) }, --   Function name (also: methods for classes)
 
-	Statement      {fg=main_purple.de(20).li(30).ro(-70) }, -- (*) Any statement
+	Statement      {fg=main_purple.de(30).li(30).ro(-80) }, -- (*) Any statement
 	Conditional    {Statement }, --   if, then, else, endif, switch, etc.
 	Repeat         {Statement }, --   for, do, while, etc.
 	Label          {Statement }, --   case, default, etc.
@@ -294,7 +294,7 @@ local theme = lush(function(injected_functions)
 	sym"@keyword"           {Statement }, -- Keyword
 	sym"@exception"         {Statement }, -- Exception
 	sym"@variable"          {Identifier }, -- Identifier
-	sym"@variable.builtin"  {fg=main_green.ro(25).li(5)}, -- Stuff like this/self
+	sym"@variable.builtin"  {fg=main_green.ro(30).li(15).de(5)}, -- Stuff like this/self
 	sym"@type"              {Type }, -- Type
 	sym"@type.definition"   {Typedef }, -- Typedef
 	sym"@storageclass"      {StorageClass }, -- StorageClass
