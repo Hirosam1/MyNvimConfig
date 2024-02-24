@@ -44,16 +44,16 @@
 
 local lush = require('lush')
 local hsl = lush.hsl
-local main_magenta = hsl(325,80,45)
-local main_dark_magenta = hsl(294,70,3)
-local main_purple = hsl(276,100,44)
-local main_green = hsl(137,85,40)
-local main_cyan = hsl(185,80,48)
+local main_magenta = hsl(330,60,50)
+local main_dark_magenta = hsl(280,28,4)
+local main_purple = hsl(276,80,50)
+local main_green = hsl(137,70,50)
+local main_cyan = hsl(185,75,55)
 local main_orange = hsl(20,75,55)
-local main_yellow = hsl(60,70,60)
-local main_red = hsl(0,60,50)
-local main_pink = hsl(305,70,60)
-local main_blue = hsl(230,75,45)
+local main_yellow = hsl(60,75,60)
+local main_red = hsl(0,62,52)
+local main_pink = hsl(310,60,60)
+local main_blue = hsl(230,70,45)
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
@@ -72,9 +72,9 @@ local theme = lush(function(injected_functions)
 	-- See :h highlight-groups
 	--
 	--Ins
-	ColorColumn    {bg=main_dark_magenta.li(10).de(40) }, -- Columns set with 'colorcolumn'
+	ColorColumn    {bg=main_dark_magenta.li(10).sa(20) }, -- Columns set with 'colorcolumn'
 	Conceal        {fg=main_dark_magenta.li(30).de(60) }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-	Cursor         {fg=main_dark_magenta, bg=main_magenta }, -- Character under the cursor
+	Cursor         {fg=main_dark_magenta, bg=main_pink }, -- Character under the cursor
 	CurSearch      {fg=main_dark_magenta, bg=main_pink }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
 	-- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
 	-- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
@@ -137,7 +137,7 @@ local theme = lush(function(injected_functions)
 	    Visual         {fg=main_dark_magenta.sa(10), bg=main_purple.da(5).sa(10) }, -- Visual mode selection
 	-- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
 	WarningMsg     {fg=main_yellow }, -- Warning messages
-	Whitespace     {fg=main_dark_magenta.li(15).de(10) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+	Whitespace     {fg=main_dark_magenta.li(50).sa(10) }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 	-- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
 	WildMenu       {fg=main_dark_magenta, bg=main_purple }, -- Current match in 'wildmenu' completion
 	-- WinBar         { }, -- Window bar of current window
@@ -145,7 +145,7 @@ local theme = lush(function(injected_functions)
 	IndentBlanklineSpaceCharBlankline {Whitespace},
 	IndentBlanklineSpaceChar          {IndentBlanklineSpaceCharBlankline},
 	IndentBlanklineChar               {IndentBlanklineSpaceCharBlankline},
-	IndentBlanklineContextStart       {fg=main_dark_magenta.li(15).de(10), gui='undercurl', sp=main_magenta},
+	IndentBlanklineContextStart       {fg=main_dark_magenta.li(60).de(10), gui='undercurl', sp=main_magenta},
 
 
 	-- Common vim syntax groups used for all kinds of code and markup.
@@ -166,13 +166,13 @@ local theme = lush(function(injected_functions)
 	Float          {Number }, --   A floating point constant: 2.3e10
 
 	Identifier     {Normal }, -- (*) Any variable name
-	Function       {fg=main_blue.de(10).li(30) }, --   Function name (also: methods for classes)
+	Function       {fg=main_blue.sa(10).li(25) }, --   Function name (also: methods for classes)
 
 	Statement      {fg=main_purple.de(30).li(30).ro(-80) }, -- (*) Any statement
 	Conditional    {Statement }, --   if, then, else, endif, switch, etc.
 	Repeat         {Statement }, --   for, do, while, etc.
 	Label          {Statement }, --   case, default, etc.
-	Operator       {fg=main_pink.ro(50) }, --   "sizeof", "+", "*", etc.
+	Operator       {fg=main_cyan.li(60).de(70) }, --   "sizeof", "+", "*", etc.
 	Keyword        {Statement }, --   any other keyword
 	Exception      {Statement }, --   try, catch, throw
 
@@ -316,8 +316,8 @@ local theme = lush(function(injected_functions)
 	-- Plugins stuff
 	TelescopeSelection      {bg=main_magenta,fg=main_dark_magenta},
 	-- Ident-blankline (ibl) stuff
-	IblIndent               {fg=main_dark_magenta.li(25).ro(25).de(25)},
-	IblScope                {fg=main_dark_magenta.li(35).ro(10).de(35)}
+	IblIndent               {fg=main_dark_magenta.li(55).ro(25).de(25)},
+	IblScope                {fg=main_dark_magenta.li(55).ro(10).de(35)}
     }
 end)
 
