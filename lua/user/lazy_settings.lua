@@ -34,9 +34,6 @@ if not vim.loop.fs_stat(lazypath) then
 	dependencies = {
 	    "nvim-tree/nvim-web-devicons",
 	},
-	config = function()
-	    require("nvim-tree").setup{}
-	end,
     },
 
     -- Detect tabstop and shiftwidth automatically

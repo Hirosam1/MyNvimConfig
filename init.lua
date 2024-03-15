@@ -15,6 +15,21 @@ require("colortils").setup()
 local colorsheme = "slimeling"
 require("user.theme_settings").set(colorsheme)
 
+require("nvim-tree").setup({
+  renderer = {
+    highlight_opened_files = "name",
+    add_trailing = true,
+    indent_markers = {
+      enable = true,
+    }
+  },
+
+  update_focused_file = {
+    enable = true
+  }
+}
+)
+
 require('lualine').setup {
       options = {
         icons_enabled = true,
